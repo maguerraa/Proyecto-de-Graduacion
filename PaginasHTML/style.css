@@ -1,0 +1,31 @@
+/* Estilos para el acordeón y la galería */
+.gallery {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.accordion-item {
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    width: 300px;
+}
+
+.accordion-header {
+    background-color: #f0f0f0;
+    padding: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+}
+
+.accordion-content {
+    display: none;
+    padding: 10px;
+}
+
+img {
+    max-width: 100%;
+}
+

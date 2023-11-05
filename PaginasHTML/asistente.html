@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asistente Virtual</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            background-image: url("C:\Users\aleja\OneDrive\Escritorio\UMG\CICLO 10\Proyecto\Wallpaper\fondochat.jpg");
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        #chat-container {
+            background-color: rgba(255, 255, 255, 0.9); /* Fondo semi-transparente blanco */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        #chat-messages {
+            height: 300px;
+            overflow-y: scroll;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            background-color: #f9f9f9; /* Color de fondo de los mensajes */
+        }
+
+        #user-input {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #user-message {
+            flex-grow: 2;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+    </style>
+	<body>
+		<ul class="menu">
+			<li><a href="index.html">Inicio</a></li>
+			<li><a href="acerca.html">Acerca de</a></li>
+			<li><a href="instalaciones.html">Instalaciones</a></li>
+			<li><a href="actividades.html">Actividades</a></li>
+			<li><a href="asistente.html">Asistente</a></li>
+			<li><a href="contactanos.html">Contactanos</a></li>
+			<li><a href="https://classroom.google.com/">Plataforma</a></li>
+		</ul>
+			<div id="chat-container">
+				<div id="chat-messages">
+					<!-- Aquí se mostrarán los mensajes del chat -->
+				</div>
+				<div id="user-input">
+					<input type="text" id="user-message" placeholder="Escribe tu mensaje..." />
+					<button onclick="sendMessage()">Enviar</button>
+				</div>
+			</div>
+		
+			<script>
+				// Lógica del chatbot en JavaScript
+				const chatMessages = document.getElementById('chat-messages');
+				const userMessageInput = document.getElementById('user-message');
+		
+				function sendMessage() {
+					const userMessage = userMessageInput.value;
+					appendMessage('Tú', userMessage);
+		
+					// Lógica de respuesta del chatbot 
+					const botResponse = getBotResponse(userMessage);
+					appendMessage('Asistente', botResponse);
+		
+					// Limpiar la entrada del usuario
+					userMessageInput.value = '';
+				}
+		
+				function appendMessage(sender, message) {
+					const messageElement = document.createElement('div');
+					messageElement.textContent = `${sender}: ${message}`;
+					chatMessages.appendChild(messageElement);
+				}
+		
+				function getBotResponse(userMessage) {
+					// Lógica de respuesta del chatbot 
+					if (userMessage.toLowerCase().includes('hola')) {
+						return '¡Hola! ¿En qué puedo ayudarte?';
+					} else if (userMessage.toLowerCase().includes('adios')) {
+						return 'Ha sido un gusto conversar contigo, si tienes mas dudas estoy para servirte!';
+					} else if (userMessage.toLowerCase().includes('precios')) {
+						return 'Con gusto, dime de que nivel deseas saber los precios?';
+					} else if (userMessage.toLowerCase().includes('primaria')) {
+						return 'La inscripcion tiene un costo de Q.500.00 y 10 mensualidades de Q.300.00.';
+					} else if (userMessage.toLowerCase().includes('preprimaria')) {
+						return 'La inscripcion tiene un costo de Q.450.00 y 10 mensualidades de Q.275.00.';
+					} else if (userMessage.toLowerCase().includes('basicos')) {
+						return 'La inscripcion tiene un costo de Q.525.00 y 10 mensualidades de Q.325.00.';
+					} else if (userMessage.toLowerCase().includes('diversificado')) {
+						return 'La inscripcion tiene un costo de Q.550.00 y 10 mensualidades de Q.350.00.';
+					} else if (userMessage.toLowerCase().includes('carreras')) {
+						return 'Las carreras disponibles son: Bachillerato en Computacion y Bachillerato en Finanzas.';
+					} else if (userMessage.toLowerCase().includes('experiencia')) {
+						return 'Liceo Cristiano CIENCIA es un centro educativo que cuenta con mas de 24 años de experiencia.';
+					} else if (userMessage.toLowerCase().includes('instalaciones')) {
+						return 'Contamos con laboratorio de computacion e ingles audiovisual, amplias aulas y areas recreativas.';
+					} else if (userMessage.toLowerCase().includes('niveles')) {
+						return 'Impartimos los niveles preprimario, primario, basicos y diversificado.';
+					} else if (userMessage.toLowerCase().includes('ubicados')) {
+						return 'Estamos ubicados en Diagonal 25, 45-55 La Estancia zona 18, esperamos tu visita';
+					} else if (userMessage.toLowerCase().includes('telefono')) {
+						return 'Nuestro numero de telefono es 2260-2276, sera un gusto atender tu llamada';
+					} else if (userMessage.toLowerCase().includes('informacion')) {
+						return 'Sera un placer, dime... Que informacion necesitas?';
+					} else if (userMessage.toLowerCase().includes('actividades')) {
+						return 'Contamos con entrenos de futbol, banda escolar, excursiones, y muchas actividades mas';
+					} else if (userMessage.toLowerCase().includes('bus')) {
+						return 'Si, contamos con servicio de bus, el precio depende de la ubicacion de residencia';
+					} else {
+						return 'Lo siento, no entiendo esa pregunta.';
+					}
+				}
+			</script>
+	</body>
+</html>
